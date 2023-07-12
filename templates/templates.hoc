@@ -9,7 +9,7 @@
 //  http://jn.physiology.org/content/early/2016/10/14/jn.00570.2016.abstract
 
 begintemplate CP_Cell
-	public soma, axon, dend, apic, type, insert_mechs
+	public soma, axon, dend, apic, type, Vinit, insert_mechs
 	create soma[1], axon[1], dend[1], apic[1]
 	strdef type
 
@@ -23,7 +23,7 @@ begintemplate CP_Cell
 
 		/////// parameters ///////
 		Vrest = -88.5366550238 // resting potential
-		Vinit = -75.0413649414 // initial potential
+		Vinit = -84.26 // initial potential (actual Vrest)
 		// celsius = 34.0 // for in vitro opt
 
 		// geometry properties
@@ -261,7 +261,7 @@ endtemplate CP_Cell
 //  http://jn.physiology.org/content/early/2016/10/14/jn.00570.2016.abstract
 
 begintemplate CS_Cell
-	public soma, axon, dend, apic, type, insert_mechs
+	public soma, axon, dend, apic, type, Vinit, insert_mechs
 	create soma[1], axon[1], dend[1], apic[1]
 	strdef type
 
@@ -275,7 +275,7 @@ begintemplate CS_Cell
 
 		/////// parameters ///////
 		Vrest = -88.5366550238 // resting potential
-		Vinit = -75.0413649414 // initial potential
+		Vinit = -87.35 // initial potential (actual Vrest)
 		// celsius = 34.0 // for in vitro opt
 
 		// geometry properties
@@ -514,7 +514,7 @@ endtemplate CS_Cell
 
 /////////////////////// FSI_Cell //////////////////////////////
 begintemplate FSI_Cell
-	public soma, dend, type, insert_mechs
+	public soma, dend, type, Vinit, insert_mechs
 	create soma[1], dend[1]
 	strdef type
 
@@ -530,7 +530,7 @@ begintemplate FSI_Cell
 		Vinit = -70 // initial potential
 		RaAll = 150
 		Cm = 1 // (microF/cm2)
-		Rm = 12100 // (ohm-cm2)
+		Rm = 12000 // (ohm-cm2)
 		eleak = -70
 		gleak = 1/Rm
 
@@ -572,7 +572,13 @@ begintemplate FSI_Cell
 			el_leak = eleak
 			glbar_leak = gleak
 			insert nainter
+			mv_05_nainter = -35.5 // -18.5
+			hv_05_nainter = -39 // -29
+			mtau_inv_nainter = 8.4 // 2.1
+			htau_inv_nainter = 0.135 // 0.045
 			insert kdrinter
+			v_05_kdrinter = -36 // -19
+			tau_inv_kdrinter = 0.45 // 0.15
 
 			ena = 45 // (mV)
 			ek = -80 // (mV)
@@ -612,7 +618,7 @@ endtemplate FSI_Cell
 /////////////////////// LTS_Cell //////////////////////////////
 // Adapted from Amygdala SOM cell model
 begintemplate LTS_Cell
-	public soma, dend, type, insert_mechs
+	public soma, dend, type, Vinit, insert_mechs
 	create soma[1], dend[2]
 	strdef type
 
