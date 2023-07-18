@@ -40,7 +40,7 @@ NEURON {
 
 
 PARAMETER {
-    initW         = 1.0      : added by Greg Glickert to scale synaptic weight for large scale modeling
+    initW      = 1.0         : added by Greg Glickert to scale synaptic weight for large scale modeling
     tau_r_AMPA = 0.2   (ms)  : Dual-exponential conductance profile
     tau_d_AMPA = 1.7   (ms)  : IMPORTANT: tau_r < tau_d
     tau_r_NMDA = 0.29  (ms)  : Dual-exponential conductance profile
@@ -50,7 +50,7 @@ PARAMETER {
     Fac = 10           (ms)  : Relaxation time constant from facilitation
     e = 0              (mV)  : AMPA and NMDA reversal potential
     mg = 1             (mM)  : Initial concentration of mg2+
-    gmax_NMDA = .001        (uS)  : Weight conversion factor (from nS to uS)
+    gmax_NMDA = .001   (uS)  : Weight conversion factor (from nS to uS)
     gmax_AMPA = .001
     u0 = 0                   : Initial value of u, which is the running value of Use
     NMDA_ratio = 0.71  (1)   : The ratio of NMDA to AMPA

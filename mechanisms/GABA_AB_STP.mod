@@ -39,7 +39,7 @@ NEURON {
 
 
 PARAMETER {
-    initW        = 1.0       : added by Greg Glickert to scale synaptic weight for large scale modeling
+    initW        = 1.0        : added by Greg Glickert to scale synaptic weight for large scale modeling
     tau_r_GABAA  = 0.2   (ms) : dual-exponential conductance profile
     tau_d_GABAA  = 8     (ms) : IMPORTANT: tau_r < tau_d
     tau_r_GABAB  = 3.5   (ms) : dual-exponential conductance profile :Placeholder value from hippocampal recordings SR
